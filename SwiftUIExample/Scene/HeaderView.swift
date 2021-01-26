@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct HeaderGradient: View {
+    var body: some View {
+        LinearGradient(gradient: Gradient(colors: [Color(Asset.Colors.pacificBlue.name),
+                                                   Color(Asset.Colors.seaBlue.name)]),
+                       startPoint: .topLeading,
+                       endPoint: .bottomTrailing)
+            .cornerRadius(20, corners: [.bottomRight])
+            .ignoresSafeArea()
+    }
+}
+
 struct HeaderView: View {
     var body: some View {
         VStack {

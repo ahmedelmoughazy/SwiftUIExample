@@ -7,32 +7,19 @@
 
 import SwiftUI
 
-struct HeaderGradient: View {
-    var body: some View {
-        LinearGradient(gradient: Gradient(colors: [Color(Asset.Colors.pacificBlue.name),
-                                                   Color(Asset.Colors.seaBlue.name)]),
-                       startPoint: .topLeading,
-                       endPoint: .bottomTrailing)
-            .cornerRadius(20, corners: [.bottomRight])
-            .ignoresSafeArea()
-    }
-}
 
 struct ContentView: View {
     var body: some View {
         ZStack(alignment: .top) {
             Color(Asset.Colors.ghostWhite.name).ignoresSafeArea()
             HeaderView()
-            ZStack {
+            Group {
                 GeometryReader { geo in
                     Color.white.frame(width: geo.size.width, height: geo.size.height)
                         .cornerRadius(16)
                         .shadow(color: Color(Asset.Colors.taupeGray.color.withAlphaComponent(0.4)), radius: 16)
                 }
-                VStack(spacing: 30) {
-                    DetailsView().offset(x: 0, y: -20).padding(.horizontal, 12)
-                    Spacer()
-                }
+                DetailsView().offset(x: 0, y: -20).padding(.horizontal, 12)
             }
             .padding(.top, 110)
             .frame(width: UIScreen.main.bounds.width - 30)
@@ -60,7 +47,7 @@ struct InfoTextView: View {
 
 struct DetailsView: View {
     var body: some View {
-        Group {
+        VStack(spacing: 30) {
             Image(Asset.Assets.icAvatarBg.name)
             
             InfoTextView(title: "صاحب المنشأة", subtitle: "محمد أحمد")
@@ -83,7 +70,7 @@ struct DetailsView: View {
             Text(L10n.about)
                 .font(.custom(FontFamily._29LTAzer.regular.name, size: 15))
                 .lineSpacing(18)
-                .foregroundColor(Color(Asset.Colors.auroMetalSaurus.name))
+                .foregroundColor(Color(Asset.Colors.auroMetalSaurus.color))
                 .multilineTextAlignment(.trailing)
         }
     }
