@@ -7,19 +7,18 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     var body: some View {
         ZStack(alignment: .top) {
             Color(Asset.Colors.ghostWhite.name).ignoresSafeArea()
             HeaderView()
             Group {
-                GeometryReader { geo in
-                    Color.white.frame(width: geo.size.width, height: geo.size.height)
-                        .cornerRadius(16)
-                        .shadow(color: Color(Asset.Colors.taupeGray.color.withAlphaComponent(0.4)), radius: 16)
-                }
-                DetailsView().offset(x: 0, y: -20).padding(.horizontal, 12)
+                Color.white
+                    .cornerRadius(16)
+                    .shadow(color: Color(Asset.Colors.taupeGray.color.withAlphaComponent(0.4)), radius: 16)
+                DetailsView()
+                    .offset(x: 0, y: -20)
+                    .padding(.horizontal, 12)
             }
             .padding(.top, 110)
             .frame(width: UIScreen.main.bounds.width - 30)
@@ -30,7 +29,7 @@ struct ContentView: View {
 struct InfoTextView: View {
     var title: String
     var subtitle: String
-        
+    
     var body: some View {
         HStack(spacing: 28) {
             Spacer()

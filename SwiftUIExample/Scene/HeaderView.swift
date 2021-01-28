@@ -20,7 +20,6 @@ struct HeaderGradient: View {
 
 struct HeaderView: View {
     var body: some View {
-        VStack {
             ZStack(alignment: .top) {
                 HeaderGradient().frame(height: 220)
                 VStack {
@@ -52,7 +51,6 @@ struct HeaderView: View {
                     }.padding(.trailing, 18)
                 }
             }
-        }
     }
 }
 
